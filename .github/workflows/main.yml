@@ -76,13 +76,17 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests on chromium only
       run: npx playwright test --project=chromium
-    - name: Upload Allure report artifacts
-      uses: actions/upload-artifact@v4
+    - name: Get Allure history
+      uses: actions/checkout@v2
+      if: always()
+      continue-on-error: true
       with:
-        name: allure-report
-        path: allure-results
-    - name: Generate Allure report
+        ref: gh-pages
+        path: gh-pages
+
+    - name: Allure Report action from marketplace
       uses: simple-elf/allure-report-action@master
+      if: always()
       id: allure-report
       with:
         allure_results: allure-results
@@ -90,15 +94,35 @@ jobs:
         allure_report: allure-report
         allure_history: allure-history
 
-    - name: Deploy report to Gihub Pages
+    - name: Deploy report to Github Pages
       if: always()
-      uses: peaceiris/actions-gh-pages@v3
-      with:
+      uses: peaceiris/actions-gh-pages@v2
+      env:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PUBLISH_BRANCH: main  # Update with your branch name
-        PUBLISH_DIR: allure-history.json
-  
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: allure-history   # - name: Upload Allure report artifacts
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #     name: allure-report
+    #     path: allure-results
+    # - name: Generate Allure report
+    #   uses: simple-elf/allure-report-action@master
+    #   id: allure-report
+    #   with:
+    #     allure_results: allure-results
+    #     gh_pages: gh-pages
+    #     allure_report: allure-report
+    #     allure_history: allure-history
+
     # - name: Deploy report to Gihub Pages
+    #   if: always()
+    #   uses: peaceiris/actions-gh-pages@v3
+    #   with:
+    #     PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #     PUBLISH_BRANCH: main  # Update with your branch name
+    #     PUBLISH_DIR: allure-history.json
+  
+    # # - name: Deploy report to Gihub Pages
     #   if: always()
     #   with:
     #     name: playwright-report
