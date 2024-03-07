@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:codegen": "npx playwright codegen",
-    "pretest":"npx playwright install",
+    "pretest":"npx playwright install --with-deps",
     "test": "npx playwright test",
     "test:ui": "npx playwright test --ui",
     "test:chrome": "npx playwright test --project=chromium",
