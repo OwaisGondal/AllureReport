@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Mar 07 06:33:31 GMT 2024","Thu Mar 07 06:33:33 GMT 2024","1795","chromium","example.spec.js","","","","has title",""
+"passed","Thu Mar 07 06:33:36 GMT 2024","Thu Mar 07 06:33:36 GMT 2024","713","firefox","example.spec.js","","","","get started link",""
+"failed","Thu Mar 07 06:33:42 GMT 2024","Thu Mar 07 06:33:42 GMT 2024","435","webkit","example.spec.js","","","","get started link",""
+"passed","Thu Mar 07 06:33:33 GMT 2024","Thu Mar 07 06:33:33 GMT 2024","454","chromium","example.spec.js","","","","get started link",""
+"failed","Thu Mar 07 06:33:39 GMT 2024","Thu Mar 07 06:33:40 GMT 2024","419","webkit","example.spec.js","","","","has title",""
+"passed","Thu Mar 07 06:33:34 GMT 2024","Thu Mar 07 06:33:36 GMT 2024","1861","firefox","example.spec.js","","","","has title",""
